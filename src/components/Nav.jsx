@@ -25,7 +25,9 @@ const Nav = (props) => {
     <nav>
       <ul>
         <li className="logo">
-          <a href="#top">
+          {/* <a href="#top"> */}
+          {/* Below, I am linking to the top of the page but without changing the hash */}
+          <a href={`#${props.section}`} onClick={() => window.scrollTo(0, 0)}>
             {/* This uses a file for the src */}
             {/* <img style={svgStyles} src="img/logo.svg" alt="logo"></img> */}
 

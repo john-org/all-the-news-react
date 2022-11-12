@@ -13,12 +13,14 @@ function App() {
 
   React.useEffect(() => {
     const url = new URL(window.location.href);
-    const hash = url.hash.slice(1);
-    if (hash !== "undefined") {
-      console.log(" hash::", hash);
-      setSection(hash);
-    } else {
+    // Make sure there is a hash (e.g. not just / )
+    if (!url.hash) {
       setSection("arts");
+    } else {
+      const hash = url.hash.slice(1);
+      if (navItems.includes(hash)) {
+        setSection(hash);
+      }
     }
   }, []);
 
