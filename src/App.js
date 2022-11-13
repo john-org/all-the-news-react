@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./components/Header";
+import Header from "./components/header";
 import Nav from "./components/Nav";
 import Stories from "./components/Stories";
 import { fetchStoriesFromLocalStorage, fetchStoriesFromNYTimes } from "./api";
@@ -15,6 +15,7 @@ function App() {
     const url = new URL(window.location.href);
     // Make sure there is a hash (e.g. not just / )
     if (!url.hash) {
+      // Set the landing page
       setSection("arts");
     } else {
       const hash = url.hash.slice(1);

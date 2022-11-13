@@ -6,7 +6,7 @@ export function fetchStoriesFromLocalStorage(section, setStories) {
   setStories(JSON.parse(localStorage.getItem(section)));
 }
 
-// .then version
+// ().then version
 // export function fetchStoriesFromNYTimes(section, setStories) {
 //   fetch(`${fetchUrl}${section}.json?api-key=${nytapi}`)
 //     .then((response) => response.json())
@@ -17,7 +17,7 @@ export function fetchStoriesFromLocalStorage(section, setStories) {
 //     .catch((error) => console.log(error));
 // }
 
-// Await version
+// async/await version
 export async function fetchStoriesFromNYTimes(section, setStories) {
   try {
     let response = await fetch(`${fetchUrl}${section}.json?api-key=${nytapi}`);

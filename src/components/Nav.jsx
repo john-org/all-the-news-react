@@ -12,13 +12,13 @@ export const Logo = ({ encodedSvgStyles }) => (
   />
 );
 
-const Nav = (props) => {
-  // This technique works for the style of the Image, but does not work for the SVG.
+const Nav = ({ navItems, setSection, section }) => {
+  // The technique below works for the style of the img, but does not work for the SVG.
   // The img style does not have a CSS property 'fill'
   // const svgStyles = {
   //   fill: "white",
   // };
-  // instead I am passing a string as follows:
+  // instead I am passing a string as follows to be used inside the SVG encoded data
   const encodedSvgStyles = "fill='white'";
 
   return (
@@ -26,8 +26,8 @@ const Nav = (props) => {
       <ul>
         <li className="logo">
           {/* <a href="#top"> */}
-          {/* Below, I am linking to the top of the page but without changing the hash */}
-          <a href={`#${props.section}`} onClick={() => window.scrollTo(0, 0)}>
+          {/* Below, I am linking to the top of the page but without changing the hash (as done by #top) */}
+          <a href={`#${section}`} onClick={() => window.scrollTo(0, 0)}>
             {/* This uses a file for the src */}
             {/* <img style={svgStyles} src="img/logo.svg" alt="logo"></img> */}
 
@@ -36,12 +36,12 @@ const Nav = (props) => {
           </a>
         </li>
 
-        {props.navItems.map((navItem, index) => (
+        {navItems.map((navItem, index) => (
           <NavItem
             key={index}
             navItem={navItem}
-            setSection={props.setSection}
-            section={props.section}
+            setSection={setSection}
+            section={section}
           />
         ))}
       </ul>
