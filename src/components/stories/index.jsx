@@ -7,7 +7,12 @@ const Stories = ({ stories, section }) => {
     //  <div className="site-wrap">
     <SiteWrap>
       {/* <h2 className="section-head">{section}</h2> */}
-      <SectionHead>{section}</SectionHead>
+
+      <SectionHead>
+        {section}
+        {/* {loading ? "" : <Loading />} */}
+      </SectionHead>
+
       {stories.map((story, index) => (
         <Story key={index} story={story} />
       ))}

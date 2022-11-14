@@ -143,7 +143,7 @@ li.logo img {
   margin-top: 0;
 } */
 
-.loading {
+/* .loading {
   position: absolute;
   top: 0;
   width: 100vw;
@@ -151,12 +151,13 @@ li.logo img {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.loading div {
+/* .loading div {
   width: 90px;
   height: 90px;
   overflow: hidden;
   background: url("../img/spinner.svg") 50% 50% no-repeat;
+  border: 1pm solid black;
   background-size: cover;
-}
+} */

@@ -18,14 +18,23 @@ export function fetchStoriesFromLocalStorage(section, setStories) {
 // }
 
 // async/await version
-export async function fetchStoriesFromNYTimes(section, setStories) {
+export async function fetchStoriesFromNYTimes(
+  section,
+  setStories,
+  setLoading,
+  loading
+) {
   try {
     let response = await fetch(`${fetchUrl}${section}.json?api-key=${nytapi}`);
+    // Start loading
+    setLoading(true);
     // console.log("response::", response);
     let data = await response.json();
     // console.log("data::", data);
     localStorage.setItem(section, JSON.stringify(data.results));
     setStories(JSON.parse(localStorage.getItem(section)));
+    // Stop loading
+    setLoading(false);
   } catch (error) {
     console.error(error);
   }

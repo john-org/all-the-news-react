@@ -3,6 +3,7 @@ import Header from "./components/header";
 import Nav from "./components/nav";
 import Stories from "./components/stories";
 import { fetchStoriesFromLocalStorage, fetchStoriesFromNYTimes } from "./api";
+import Loading from "./components/loading";
 
 const navItems = ["arts", "books", "fashion", "food", "movies", "travel"];
 
@@ -28,7 +29,7 @@ function App() {
   React.useEffect(() => {
     setLoading(true);
     if (!localStorage.getItem(section)) {
-      fetchStoriesFromNYTimes(section, setStories);
+      fetchStoriesFromNYTimes(section, setStories, setLoading);
     } else {
       fetchStoriesFromLocalStorage(section, setStories);
     }
@@ -36,7 +37,8 @@ function App() {
   }, [section]);
 
   if (loading) {
-    return <h2>Loading...</h2>;
+    // return <h2>Loading...</h2>;
+    return <Loading />;
   }
 
   return (
