@@ -1,5 +1,6 @@
 import React from "react";
-import NavItem from "./NavItem";
+import NavItem from "../navitem";
+import { NavBar } from "./styles";
 
 // Img with encoded SVG and applied style (option1)
 // const encodedSvgStyles = "fill='white'";
@@ -22,7 +23,7 @@ const Nav = ({ navItems, setSection, section }) => {
   const encodedSvgStyles = "fill='white'";
 
   return (
-    <nav>
+    <NavBar>
       <ul>
         <li className="logo">
           {/* <a href="#top"> */}
@@ -45,7 +46,7 @@ const Nav = ({ navItems, setSection, section }) => {
           />
         ))}
       </ul>
-    </nav>
+    </NavBar>
   );
 };
 

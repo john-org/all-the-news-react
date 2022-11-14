@@ -25,4 +25,5 @@ export const StoryImg = styled.img`
 export const StoryPara = styled.p`
   margin-top: 0;
   color: #111;
+  margin: 1rem 0;
 `;
